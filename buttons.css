@@ -1,0 +1,19 @@
+.resbutton {
+    padding: 30px 20px;
+    background-color: cornflowerblue;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    font-size: 175%;
+    font-family: monospace;
+    font-weight: bolder;
+    color: rgb(30, 30, 30);
+    transition: background-color 0.7s;
+    border-width: 5px;
+    border-color: rgb(29, 50, 89);
+    border-style: solid;
+  }
+
+  .resbutton:hover{
+    background-color: rgb(160, 178, 216);
+  }

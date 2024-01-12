@@ -1,0 +1,158 @@
+body {
+    animation: fadeEffect 0.4s;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    position: sticky;
+    top:0;
+    width: 100%;
+}
+
+.topnav li {
+    float: left;
+}
+
+.topnav li a {
+    color: black;
+    display: block;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: none;
+    font-family:monospace;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.topnav li a:hover {
+    color:rgb(179, 179, 179);
+}
+
+@keyframes textFade {
+    0% {color: rgb(0, 0, 0);}
+    100% {color: gray;}
+}
+
+.stitle {
+    color: white;
+    font-size: 65px;
+    background-color: #212339;
+    text-align: center;
+    padding: 60px 20px;
+    font-family:monospace;
+    font-weight: 900;
+}
+
+.stitle2 {
+    color: white;
+    font-size: 45px;
+    background-color: #212339;
+    text-align: center;
+    padding: 60px 20px;
+    font-family:monospace;
+    font-weight: 900;
+}
+
+body {
+    margin: 0;
+}
+
+
+.navtitle {
+    float:right;
+    font-size: 20px;
+    padding: 16px 20px;
+    font-family: monospace;
+    font-weight: bolder;
+}
+
+.sbody1 iframe {
+    height: 1100px;
+    width: 70%;
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+
+.sbody1 h2 {
+    font-size: 50px;
+    text-align: center;
+    font-family: monospace;
+    font-weight: bolder;
+}
+
+.sbody2 h2 {
+    font-size: 50px;
+    text-align: left;
+    font-family: monospace;
+    font-weight: bolder;
+    margin-bottom: 4%;
+}
+
+.spacer a {
+    padding-right: 15%;
+    float: right;
+    color: gray;
+    font-family: monospace;
+}
+
+.pmulticol {
+    column-count: 4;
+    column-width: 50%;
+    padding: 100px 100px;
+}
+
+.lcmulticol {
+    column-count: 2;
+    column-width: 100%;
+    padding: 2% 4%;
+    
+}
+
+.resim {
+    border-radius: 4px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(35, 46, 67);
+}
+
+.resim:hover {
+    box-shadow: 0 0 4px 2px rgba(6, 10, 88, 0.5);
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0.9;}
+    to {opacity: 1;}
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .lcdoc1 {
+    text-align: center;
+    padding-top: 8%;
+    height: 700px;
+  }
+
+  .lcdoc1 iframe {
+    width: 95%;
+    height: 100%;
+  }
+
+  .lctext {
+    padding-top: 0;
+    font-size: 120%;
+    font-family: monospace; 
+    font-weight: bold; color: gray;
+    padding-bottom: 7%;
+  }
