@@ -17,3 +17,48 @@
   .resbutton:hover{
     background-color: rgb(160, 178, 216);
   }
+
+  .projbutton {
+    padding: 30px 20px;
+    background-color: cornflowerblue;
+    text-align: center;
+    width: 60%;
+    margin: auto;
+    font-size: 175%;
+    font-family: monospace;
+    font-weight: bolder;
+    color: rgb(30, 30, 30);
+    transition: background-color 0.7s;
+    border-width: 5px;
+    border-color: rgb(29, 50, 89);
+    border-style: solid;
+
+  }
+
+  .projbutton:hover{
+    background-color: rgb(160, 178, 216);
+  }
+
+  .notebutton {
+    width: 80%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-size: 200%;
+    font-family: monospace;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
+    border-width: 4px;
+    border-radius: 25px;
+    border-color: rgb(25, 25, 25);
+    border-style: none;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+
+  .notebutton:hover{
+    background-color: rgb(185, 80, 255);
+  }
