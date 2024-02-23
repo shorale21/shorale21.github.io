@@ -19,7 +19,7 @@
         </script>
         <script type="text/javascript" src="../tabs.js"></script>
     </head>
-    <body style="background-color: rgb(20, 20, 20);">
+    <body style="background-color: rgb(25, 25, 25);">
         <div class="notestop">
             <ul>
                 <div class="ntopnav">
@@ -32,7 +32,7 @@
                 </div>
             </ul>
         </div>
-        <div class="stitle2" style="background-color: black; color:rgb(148, 68, 232); border-bottom: 4px rgb(31, 31, 31) solid;">
+        <div class="stitle2" style="background-color: black; color:rgb(148, 68, 232); border-bottom: 4px rgb(35, 35, 35) solid;">
             <h2>Physics: Mechanics Notes</h2>
             <h6>(If the LaTeX hasn't loaded, refresh, may take multiple times)</h6>
         </div>
@@ -48,6 +48,11 @@
                     <button class="tablinks" onclick="openTab(event, 'lagrangians')">Lagrangian Mechanics</button>
                     <button class="tablinks" onclick="openTab(event, 'hamiltonians')">Hamiltonian Mechanics</button>
                     <button class="tablinks" onclick="openTab(event, 'centralbody')">Central Force Problems</button>
+                    <button class="tablinks" onclick="openTab(event, 'accelframe')">Accelerating Frames</button>
+                    <button class="tablinks" onclick="openTab(event, 'tides')">Tidal Forces</button>
+                    <button class="tablinks" onclick="openTab(event, 'rotatingframe')">Rotating Frames</button>
+                    <button class="tablinks" onclick="openTab(event, 'centrifugal')">Centrifugal Forces</button>
+                    <button class="tablinks" onclick="openTab(event, 'coriolis')">Coriolis Forces</button>
             </div>
             <div id="newton" class="tabcontent">
                 <h2 style="font-family: monospace; margin: 0;">Newtonian Physics</h2>
@@ -1359,6 +1364,208 @@
                     >1. $\epsilon < 1$ indicates an elliptic orbit
                     >2. $\epsilon=1$ indicates a parabolic orbit
                     >3. $\epsilon>1$ indicates a hyperbolic orbit
+                </md-block>
+                <div style="padding-top: 5%;"></div>
+            </div>
+            <div id="accelframe" class="tabcontent">
+                <h2 style="font-family: monospace; margin: 0;">Accelerating Reference Frames</h2>
+                <md-block style="font-family: monospace;">
+                    Newton's mechanics only apply in inertial frames. If we consider non-inertial frames then the physics is altered.
+
+                    Consider an inertial frame $\mathcal{S}_0$ and a second frame $\mathcal{S}$ that is accelerating relative to $\mathcal{S}_0$ with acceleration $\textbf{A}$. Note that $\textbf{A}$ is not necessarily constant. 
+
+                    Consider a point in $\mathcal{S}_0$, let's call it $\textbf{r}_0$. Suppose this point experiences a net force $\textbf{F}$ as seen in the inertial frame. 
+                    $$m\ddot{\textbf{r}}_0=\textbf{F}$$
+                    Now let's consider this point in the accelerating frame. Relative to the origin of $\mathcal{S}$, we say the point is at $\textbf{r}$. By the laws of velocity addition, the velocity of the point relative to $\mathcal{S}_0$ is the sum of its velocity relative to $\mathcal{S}$ and the velocity of $\mathcal{S}$ relative to $\mathcal{S}_0$:
+                    $$\dot{\textbf{r}}_0=\dot{\textbf{r}}+\textbf{V}$$
+                    Differentiating and rearranging gives the equation of motion:
+                    $$\ddot{\textbf{r}}=\ddot{\textbf{r}}_0-\textbf{A}$$
+                    In other words,
+                    $$m\ddot{\textbf{r}}=\textbf{F}-m\textbf{A}$$
+                    The net force as seen in the accelerating reference frame has an offset term which is equal to the force that may be accelerating the frame to begin with, which makes sense. This offset is called the **inertial force**.
+                    >#### Definition: The Inertial Force
+                    >The inertial force is a force that is applied as a result of an accelerating reference frame. When one examines forces relative to a linearly accelerating reference frame, the inertial force must also be applied.
+                    >$$\textbf{F}_{\text{inertial}}=-m\textbf{A}$$
+                    >Where $\textbf{A}$ is the acceleration of the noninertial reference frame relative to an inertial frame.
+
+                    ### Example: Pendulum in Accelerating Car
+                    We consider a simple pendulum inside of a car that is accelerating to the right with a constant acceleration $\textbf{A}$. 
+
+                    Consider an inertial frame, in which both the car and the pendulum are accelerating together. There are only two forces on the pendulum bob, the tension in the string $\textbf{T}$ and the weight $m\textbf{g}$. Therefore the net force in this frame is
+                    $$\textbf{F}=\textbf{T}+m\textbf{g}$$
+                    If we examine the situation inside the noninertial frame of the car, the pendulum bob experiences the inertial force, making the equation of motion
+                    $$m\ddot{\textbf{r}}=\textbf{T}+m\textbf{g}-m\textbf{A}$$
+                    We can rewrite this as 
+                    $$m\ddot{\textbf{r}}=\textbf{T}+m\textbf{g}_{\text{eff}}$$
+                    Where the effective gravity is $\textbf{g}-\textbf{A}$. Thus it is as if gravity also has a horizontal component. If the pendulum is at rest, the $\ddot{\textbf{r}}$ is zero and the tension must point exactly opposite the gravitational force, which is, 
+                    $$\textbf{g}_{\text{eff}}=-A\hat{x}-g\hat{y}$$
+                    If the tension points opposite then we can define a right triangle with the height as $g$ and the base as $A$, allowing us to find that the pendulum hangs at an angle
+                    $$\phi_{\text{hang}}=\arctan{(A/g)}$$
+                    This angle is left of the vertical axis, as the car accelerates to the right.
+                </md-block>
+                <div style="padding-top: 5%;"></div>
+            </div>
+            <div id="tides" class="tabcontent">
+                <h2 style="font-family: monospace; margin: 0;">Tidal Forces</h2>
+                <md-block style="font-family: monospace;">
+                    We would like to explain the tides. The tides are the result of bulges in the earth's oceans due to the gravitational attraction of the moon & sun. 
+
+                    The most important contributor is the moon, so we will just consider that effect. Let's assume oceans cover the entire surface of the globe, for a simple model. 
+
+                    One's first instinct may be to assume the bulge appears out of the Earth, towards the moon. However, this interpretation is incorrect, as we observe two tides per day. The moon gives the earth an acceleration $\textbf{A}$ towards the moon. This is essentially a centripetal acceleration towards their common center of mass. An object on the moon side of the Earth feels a slightly larger force relative to the center. 
+
+                    On the other side, the force is slightly less. Thus in the reference frame of the Earth, the two forces are in opposite directions, ie the side opposite to the moon feels a 'repulsion' from the moon.
+
+                    Let's look at this quantitatively. The forces on an object near the surface of the earth are gravitation, one toward the center of the earth and one toward the moon.
+                    $$\textbf{F}=m\textbf{g}-\frac{GM_mm\hat{\textbf{d}}}{d^2}$$
+                    Where $\hat{\textbf{d}}$ points from the moon to the object:
+
+                    <img src="tides1.PNG" width="60%"></img>
+                    
+                    At the origin, the acceleration would be purely to the moon:
+                    $$\textbf{A}=-GM_m\frac{\hat{\textbf{d}}_0}{d_0^2}$$
+                    Now, the mass is on the Earth, which is accelerating towards the moon, and therefore experiences the inertial force,
+                    $$m\ddot{\textbf{r}}=\textbf{F}-m\textbf{A}=\bigg(m\textbf{g}-GM_mm\frac{\hat{\textbf{d}}}{d^2}+\textbf{F}_{ng}\bigg)+GM_mm\frac{\hat{\textbf{d}}_0}{d_0^2}$$
+                    This can be represented as gravity plus two forces, the first of which is the tidal force:
+                    $$F_{\text{tidal}}=-GM_mm\bigg(\frac{\hat{\textbf{d}}}{d^2}-\frac{\hat{\textbf{d}}_0}{d_0^2}\bigg)$$
+                    Which clearly indicates that an object on the opposite side from the moon is repulsed by the moon. 
+                </md-block>
+                <div style="padding-top: 5%;"></div>
+            </div>
+            <div id="rotatingframe" class="tabcontent">
+                <h2 style="font-family: monospace; margin: 0;">Rotating Reference Frames</h2>
+                <md-block style="font-family: monospace;">
+                    We'd like to discuss centripetal acceleration, meaning rotation. When we observe a rotating rigid body, its reference frame is noninertial, and thus needs corrections in Newton's laws. 
+
+                    First, we define the angular velocity vector as
+                    $$\vec{\omega}=\omega\textbf{u}$$
+                    Where $\textbf{u}$ is the unit vector that points in the direction around the angular motion. The direction of $\textbf{u}$ is chosen so that when one looks in the direction of $\textbf{u}$ the object is rotating clockwise. Think of the right hand rule.
+
+                    Let's think about how we can relate this to linear motion. Consider a sphere (such as the Earth) rotating about an axis through its center, and consider a point $P$ on the surface. This point is obviously rotating with the Earth, and its path is a **latitudal** circle on the surface of the Earth. We say its position is fixed at $\textbf{r}$ which is drawn from the center of the Earth.
+
+                    If the Earth is spinning with speed $\omega$, then the linear velocity of $P$ around its circle, is $v=\omega r\sin{\theta}$ where $\theta$ is the polar angle in spherical coordinates. This angle is also called the **colatitude**. Generalizing this, we have the following relation:
+                    $$\textbf{v}=\vec{\omega}\times\textbf{r}$$
+                    In fact, if $\textbf{e}$ is a unit vector in the rotating frame (fixed with respect to the body, like $\textbf{r}$ in the previous example), then the relation applies:
+                    $$\frac{d\textbf{e}}{dt}=\vec{\omega}\times\textbf{e}$$
+
+                    Now we have to tools to discuss rotation motion. Consider a frame $\mathcal{S}$ that is rotating with an angular velocity $\vec{\Omega}$ relative to an inertial frame $\mathcal{S}_0$. For the time being let's assume the origins are the same, but the axes can be very different.
+
+                    We now consider an arbitrary vector $\textbf{Q}$ as it is drawn in both frames. We want to understand the time rate of change of $\textbf{Q}$ in both frames. The subscripts in the following equations represent the reference frame. We first expand the vector in terms of the fixed unit vectors in $\mathcal{S}$.
+                    $$\textbf{Q}_\mathcal{S}=Q_1\textbf{e}_1+Q_2\textbf{e}_2+Q_3\textbf{e}_3$$
+                    This is an expansion in the rotating frame. For observers in $\mathcal{S}$ the $\textbf{e}$ vectors are fixed in time. We can now differentiate this:
+                    $$\bigg(\frac{d\textbf{Q}}{dt}\bigg)_{\mathcal{S}}=\sum\limits_{i}\frac{dQ_i}{dt}\textbf{e}_i$$
+                    In the inertial frame, the unit vectors change in time, with angular velocity $\vec{\Omega}$ as specified before. Thus
+                    $$\bigg(\frac{d\textbf{Q}}{dt}\bigg)_{\mathcal{S}_0}=\sum\limits_{i}\frac{dQ_{i}}{dt}\textbf{e}_{i}+\sum\limits_{i}Q_{i}\bigg(\frac{d\textbf{e}_{i}}{dt}\bigg)_{\mathcal{S}_0}$$
+                    due to the product rule. We can then use the above relation between time derivatives of vectors to find that the time derivatives of the unit vectors are just the angular speed crossed with the unit vector:
+                    $$\bigg(\frac{d\textbf{e}_{i}}{dt}\bigg)_{\mathcal{S}_{0}}=\vec{\Omega}\times\textbf{e}_i$$
+                    Then we can find the second sum by taking out the cross product and examining the result:
+                    $$\sum\limits_{i}Q_{i}\bigg(\frac{d\textbf{e}_{i}}{dt}\bigg)_{\mathcal{S}_{0}}=\vec{\Omega}\times\textbf{Q}$$
+                    Therefore we can define a coordinate transformation from the time derivative in a rotating frame to a time derivative in an inertial frame.
+
+                    >#### Time Derivative Transformation
+                    >For any vector $\textbf{Q}$, the transformation of its time derivative from a rotating coordinate system $\mathcal{S}$ to an inertial frame $\mathcal{S}_{0}$ is given by:
+                    >$$\bigg(\frac{d\textbf{Q}}{dt}\bigg)_{\mathcal{S}_{0}}=\bigg(\frac{d\textbf{Q}}{dt}\bigg)_{\mathcal{S}}+\vec{\Omega}\times\textbf{Q}$$
+                    >Where $\vec{\Omega}$ is the angular speed of $\mathcal{S}$ relative to $\mathcal{S}_0$
+
+                    ### Newton's Second Law
+
+                    Now that we have established time derivatives, we can look at the second law equations, which involve second time derivatives of a vector $\textbf{r}$.
+
+                    Consider a particle of mass $m$ and position $\textbf{r}$. In the inertial frame, Newton's second law retains its normal form:
+                    $$m\bigg(\frac{d^2\textbf{r}}{dt^2}\bigg)_{\mathcal{S}_{0}}=\textbf{F}$$
+                    We can use the above equation to find the same equation transformed to the rotating coordinate system.
+
+                    $$\bigg(\frac{d\textbf{r}}{dt}\bigg)_{\mathcal{S}_{0}}=\bigg(\frac{d}{dt}\bigg)_{\mathcal{S}}\bigg[\bigg(\frac{d\textbf{r}}{dt}\bigg)_{\mathcal{S}}+\vec{\Omega}\times\textbf{r}\bigg]+\vec{\Omega}\times\bigg[\bigg(\frac{d\textbf{r}}{dt}\bigg)_{\mathcal{S}}+\vec{\Omega}\times\textbf{r}\bigg]$$
+
+                    Then for the rotating frame,  the second law becomes
+                    $$m\ddot{\textbf{r}}_{(\mathcal{S})}=\textbf{F}+2m\dot{\textbf{r}}\times\vec{\Omega}+m(\vec{\Omega}\times\textbf{r})\times\vec{\Omega}$$
+                    In other words, we have two extra terms in the net force equation. The **Coriolis Force** and the **Centrifugal Force**.
+                </md-block>
+                <div style="padding-top: 5%;"></div>
+            </div>
+            <div id="centrifugal" class="tabcontent">
+                <h2 style="font-family: monospace; margin: 0;">The Centrifugal Force</h2>
+                <md-block style="font-family: monospace;">
+                    >#### Definition: The Centrifugal Force
+                    >The **centrifugal force** is a force experienced by an object in a rotating coordinate frame. It is a correctional term in the net force equation, defined to be 
+                    >$$\textbf{F}_{\text{CF}}=m(\vec{\Omega}\times\textbf{r})\times\vec{\Omega}$$
+
+
+                    One of the more important applications of the centrifugal force is free fall acceleration near the Earth. If we ignore the coriolis force for now and just focus on the centrifugal force, then from the perspective of the Earth, an object in free fall obeys the following equation.
+                    $$m\ddot{\textbf{r}}=\textbf{F}_{\text{grav}}+\textbf{F}_{\text{cf}}$$
+                    We can find the direction of the centrifugal force to be directly outwards from the axis of rotation.
+                    $$\textbf{F}=\textbf{F}_{\text{grav}}+\textbf{F}_{\text{cf}}=-mg_{0}\hat{\vec{\rho}}+m\Omega^{2}R\sin{\theta}\hat{\textbf{x}}$$ Where $\theta$ is the polar angle (or colatitude). We can define a new acceleration $\textbf{g}$ which is an effective gravitational acceleration seen from the Earth:
+                    $$\textbf{g}=\textbf{g}_{0}-\Omega^{2}R\sin^2{\theta}\hat{\vec{\rho}}$$
+                    Thus the value of gravity at the equator is less than at the poles of the Earth, as seen in the reference frame of the Earth. There is also a tangential component of the centrifugal force (tangent to the Earth's surface). This component is zero at the poles and at the equator, and maximum at latitude 45. 
+
+                    Therefore, free fall acceleration is not exactly in the direction of the gravitational force, at least for observers on Earth. 
+                </md-block>
+                <div style="padding-top: 5%;"></div>
+            </div>
+            <div id="coriolis" class="tabcontent">
+                <h2 style="font-family: monospace; margin: 0;">The Coriolis Force</h2>
+                <md-block style="font-family: monospace;">
+                    >#### The Coriolis Force
+                    >The Coriolis Force is an inertial force felt by observers in a rotating reference frame. It must be included in equations of motion.
+                    >$$\textbf{F}_{\text{cor}}=2m\dot{\textbf{r}}\times\vec{\Omega}$$
+                    >Where $\dot{\textbf{r}}$ is the **velocity** of the object relative to the rotating frame.
+
+                    The coriolis force always points perpendicular to the velocity vector.
+
+                    We can again examine free fall, but this time with the coriolis force involved.
+                    $$m\ddot{\textbf{r}}=m\textbf{g}_{0}+\textbf{F}_{\text{cf}}+\textbf{F}_{\text{cor}}$$
+                    We can again combine the centrifugal and gravitational forces into a single vector, giving us the equation of motion
+                    $$\ddot{\textbf{r}}=\textbf{g}+2\dot{\textbf{r}}\times\vec{\Omega}$$
+                    Notice that this equation does not involve the position vector $\textbf{r}$, only the acceleration and velocity. This means we can make a change of origin and leave the equation untouched. We now choose the origin to be the surface of the Earth where the free fall is taking place. 
+
+                    The components of the velocity and angular velocity in this new frame are
+                    $$\dot{\textbf{r}}=(\dot{x},\dot{y},\dot{z})$$
+                    and
+                    $$\vec{\Omega}=(0,\Omega\sin{\theta},\Omega\cos{\theta})$$
+                    Note that this coordinate system places $x$ pointing into the page, $y$ pointing directly North along the surface, and $z$ directly outwards from the surface.
+                    Then to find the coriolis force we simply take the cross product, and  this gives us 3 equations of motion.
+                    $$\ddot{x}=2\Omega(\dot{y}\cos{\theta}-\dot{z}\sin{\theta})$$
+                    $$\ddot{y}=-2\Omega\dot{x}\cos{\theta}$$
+                    $$\ddot{z}=-g+2\Omega\dot{x}\sin{\theta}$$
+                    We can use a succession of approximations to solve these equations, depending on the smallness of $\Omega$. We can get a starting approximation by assuming $\Omega=0$. Plugging that into the differential equations and solving gives 
+                    $$x=0,\quad\quad y=0,\quad\quad z=h-\frac{1}{2}gt^2$$
+                    Where we assume $z=h$ at $t=0$. The object falls down with constant acceleration, as normal. This is called the  *zero-th order approximation*. To find the *first order approximation*, we then plug these values back into the differential equations and get 
+                    $$\ddot{x}=2\Omega gt\sin{\theta}\quad\quad\quad\ddot{y}=0\quad\quad\quad\ddot{z}=-g$$
+                    And again with the same initial conditions, we get
+                    $$x=\frac{1}{3}\Omega gt^3\sin{\theta}$$
+                    And the $z$ and $y$ equations remain the same as before.
+                    Thus the result is that the coriolis force causes a slight motion in the $x$ direction, East across the surface of the Earth.
+
+                    ### The Foucault Pendulum
+
+                    This is an application of the Coriolis force. A Foucault pendulum made of a very heavy mass $m$ hanging from a light wire from a tall ceiling. This allows it to swing in all directions.
+
+                    As seen in the inertial frame, the only forces are the tension in the string and the gravitational force, and so one may be inclined to treat it as a normal pendulum, that only swings in a flat plane.
+
+                    However, this pendulum is on the Earth, and so are we. We are in a noninertial frame observing the free fall of the pendulum, and so we must take into account the inertial forces present in our frame.
+
+                    To set up this problem, we first combine the centrifugal and gravitational forces into one force as before, and choose the same axes on the surface of the Earth. We also recognize that we are observing small angles of approximation.
+
+                    In that approximation, $T\approx mg$, giving us a starting point. We examine the $x$(East) and $y$(North) components of the tension:
+                    $$T_{x}=-mgx/L\quad\quad\quad\quad T_{y}=-mgy/L$$
+                    The $x$ and $y$ components of $\textbf{g}$ are zero, and the components of the coriolis force have been found. For small oscillation, the $\dot{z}$ is small compared to $\dot{x}$ and $\dot{y}$ and can be ignored. We assume there is no acceleration in the z direction either.
+                    Thus we have coupled equations:
+                    $$\ddot{x}=-gx/L+2\dot{y}\Omega\cos{\theta}$$
+                    $$\ddot{y}=-gy/L+2\dot{x}\Omega\cos{\theta}$$
+                    We say that the factor $g/L$ is just $\omega_0^2$ which is the natural frequency of the pendulum, and rewrite the differential equations:
+                    $$\ddot{x}-2\Omega_{z}\dot{y}+\omega_0^2x=0$$
+                    $$\ddot{y}-2\Omega_{z}\dot{x}+\omega_0^2y=0$$
+                    To solve, we define a complex number $\eta=x+iy$. If we multiply the second equation by $i$ and add it to the first, the two combine into one equation:
+                    $$\ddot{\eta}+2i\Omega_{z}+\omega_{0}^2\eta=0$$
+                    which is easily solvable, finding two solutions.
+                    $$\eta(t)=e^{-i\alpha t}$$
+                    Where $\alpha$ is a constant, that must satisfy:
+                    $$\alpha=\Omega_{z}\pm\sqrt{\Omega_{z}^{2}+\omega_{0}^{2}}\approx\Omega_{z}\pm\omega_{0}$$
+                    Which is a good approximation because the angular velocity of the Earth is much smaller than the frequency of the pendulum. This gives the two solutions:
+                    $$\eta=e^{-i\Omega_{z}t}(C_{1}e^{i\omega_{0}t}+C_{2}e^{-i\omega_{0}t})$$
+                    For initial conditions, we suppose that at $t=0$ the pendulum has been pulled in the $x$ direction a distance $A$ and nothing in the $y$ direction. Then $C_{1}=C_{2}=A/2$.
+                    $$x(t)+iy(t)=Ae^{-i\Omega_{z}t}\cos{\omega_{0}t}$$
+                    The complex exponential indicates oscillations in the $y$ direction and the cosine indicates harmonic motion in the $x$ direction. As can be seen here, the coriolis effect actually causes the pendulum to swing in the $x$ direction with small rotations in the $y$ direction, causing it to trace out a circle in the $xy$ plane after a long time has passed.
                 </md-block>
                 <div style="padding-top: 5%;"></div>
             </div>
