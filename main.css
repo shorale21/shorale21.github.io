@@ -94,6 +94,14 @@ body {
     margin-bottom: 4%;
 }
 
+.stitle3 {
+    font-size: 30px;
+    text-align: left;
+    font-family: monospace;
+    font-weight: bolder;
+    margin-left: 2%;
+}
+
 .spacer a {
     padding-right: 15%;
     float: right;
@@ -155,4 +163,13 @@ body {
     font-family: monospace; 
     font-weight: bold; color: gray;
     padding-bottom: 7%;
+  }
+
+  .changelogbody {
+    padding-top: 0;
+    font-size: 120%;
+    font-family: monospace; 
+    font-weight: bold; color: rgb(74, 74, 74);
+    padding-bottom: 1%;
+    margin-left: 3%;
   }

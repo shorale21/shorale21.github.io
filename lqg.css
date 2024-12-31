@@ -34,3 +34,11 @@
     padding-right: 3%;
     padding-bottom: 4%;
 }
+
+.lqtext {
+    padding-top: 0;
+    font-size: 120%;
+    font-family: monospace; 
+    font-weight: bold; color: rgb(30, 30, 30);
+    padding-bottom: 7%;
+}
