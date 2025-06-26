@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Liquid Crystal Notebook</title>
+        <link href="labnotebook.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div style="text-align: center; font-weight: bolder; font-family: Georgia, 'Times New Roman', Times, serif; font-size: 200%; background-color: rgb(21, 19, 50); padding-top: 0.5%; padding-bottom: 0.5%;">
+            <h3>Lab Notebook</h3>
+        </div>
+        <div class="wrapper">
+            <div class="tabs">
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-1" checked="" class="tab-switch">
+                    <label for="tab-1" class="tab-label">6/27/23</label>
+                    <div class="tab-content">
+                        <h3>Background on Liquid Crystals</h3>
+                        <div>
+                            <ul>
+                                <li>Smectic: orientational order, translational order in 1 dimension (called z)</li>
+                                <li>Nematic: orientational order, no translational order (behaves as liquid in 3 dimensions)</li>
+                                <li>Isotropic: No order, just liquid</li>
+                                <li>Birefringence: Light is broken up into rays of different velocities by molecular structure</li>
+                                <li>Racemic: even mixture of right and left handed molecules</li>
+                                <li>Chiral: all molecules either right or left handed</li>
+                                <li>Smectic C: all molecules oriented in the same direction, tilted with respect to the crystal direction z
+                                    <ul>
+                                        <li>difference between molecular orientation n and smectic direction z is a 2d vector field called the c-director</li>
+                                    </ul>
+                                </li>
+                                <li>Smectic C liquid crystals have point defects, singularities of the c-director field
+                                    <ul>
+                                        <li>places where the director field spontaneously swaps direction</li>
+                                        <li>+1 defects are called sources and exist inside islands</li>
+                                        <li>-1 defects are called curls and exist outside of islands</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Smectic C defects form equilibrium structures
+                                    <ul>
+                                        <li>Quadrupole: between a right handed island and left handed island, 2 +1 defects and 2 -1 defects forming a cross. Not present in chiral materials.</li>
+                                        <li>Dipole chains: repeating +1 -1 defects, islands chained together with -1 vortices in between. Can exist in both chiral and racemic materials</li>
+                                    </ul>
+                                </li>
+                                <li>My project will be to collect data of these defects under polarized microscopy, and optimize a machine learning model to detect these defects, and model the interactions between +1 and -1 defects.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab">
+                <input type="radio" name="css-tabs" id="tab-2" class="tab-switch">
+                <label for="tab-2" class="tab-label">6/29/23</label>
+                <div class="tab-content">
+                    <h3>Drawing Films</h3>
+                    <ul>
+                        <li>The film I left overnight has not thinned and is nonuniform</li>
+                        <li>I will try scraping the film to the side to form a hole -> this did not work, any holes were quickly filled in by surrounding layers</li>
+                        <li>I need to draw a thin film to observe islands with a dark background</li>
+                        <li>I achieved a hole in a thin film, which started small and expanded, making a very thin film
+                            <ul>
+                                <li>the full expansion took about 35 minutes</li>
+                                <li>the temperature of the hot stage was set to 35 deg C for this process</li>
+                                <li>no point defects observed, but many small islands formed in the hole (viewed under 20x objective)</li>
+                                <li>it maybe transitioned to smectic A due to the temperature (this would explain the lack of defects)</li>
+                                <li>no change after temperature lowered to 25 deg C</li>
+                                <li>no islands with a large radius (comparable to size of film as a whole)</li>
+                                <li>there are formed groups of islands moving together in the film</li>
+                                <li>tiny bright islands embedded in the moving islands? small bright spot at the center (not a defect)</li>
+                                <li>I will leave the film overnight and observe</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                <div class="tab">
+                <input type="radio" name="css-tabs" id="tab-3" class="tab-switch">
+                <label for="tab-3" class="tab-label">6/30/23</label>
+                <div class="tab-content">
+                    <h3>Drawing Films</h3>
+                    <ul>
+                        <li>Film from yesterday had popped when I arrived in the morning</li>
+                        <li>I managed to get another hole in a film after drawing for a while
+                            <ul>
+                                <li>This hole expanded in ~2 minutes</li>
+                            </ul>
+                        </li>
+                        <li>Here is the technique for future reference:
+                            <ul>
+                                <li>draw a film across the hole</li>
+                                <li>use slide to jostle the film, start at the middle and push the layers into the meniscus</li>
+                                <li>do this somewhat violently but steadily, until a hole appears in the center</li>
+                            </ul>
+                        </li>
+                        <li>No point defects observed in the 2nd hole, including after multiple hours
+                            <ul>
+                                <li>at first there were larger islands, but after hours the islands were very small</li>
+                                <li>the groups of small islands had very intricate shapes and structures</li>
+                                <li>there was a bright point at the center of the island, potentially a point defect but the crossed polarizers did not reveal any vortex behavior</li>
+                            </ul>
+                        </li>
+                        <li>Possible fixes:
+                            <ul>
+                                <li>change the exposure time for observing the film</li>
+                                <li>look through the eyehole in the microscope</li>
+                                <li>make the F-stop as small as possible</li>
+                                <li>a more powerful light source?</li>
+                            </ul>
+                        </li>
+                        <li>For the SVM:
+                            <ul>
+                                <li>need more positive data for training</li>
+                                <li>possibility for a new class of edge detection for vortices</li>
+                                <li>histogram stretching</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-4" class="tab-switch">
+                    <label for="tab-4" class="tab-label">7/5/23</label>
+                    <div class="tab-content">
+                        <h3>Drawing Films</h3>
+                        <ul>
+                            <li>The microscope was having some problems: something blocking part of view - turned out to be the analyzer in the back (it had shifted for some reason)</li>
+                            <li>I am still successful in getting holes in films - the current one took about 10 minutes to expand</li>
+                            <li>Still no point defects visible in the film - I tried some solutions:
+                                <ul>
+                                    <li>change exposure -> can't see at both high exposures and low exposures</li>
+                                    <li>look through eyehole -> did not work</li>
+                                    <li>change F-stop -> did not work</li>
+                                </ul>
+                            </li>
+                            <li>I also tested the SVM some more:
+                                <ul>
+                                    <li>wrote script to convert .cine to .bmp</li>
+                                    <li>I would like to see how the SVM handles unpolarized data</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-5" class="tab-switch">
+                    <label for="tab-5" class="tab-label">7/6/23</label>
+                    <div class="tab-content">
+                        <h3>Point Defects</h3>
+                        <ul>
+                            <li>My goals today:
+                                <ul>
+                                    <li>attempt to observe point defects</li>
+                                    <li>read new paper</li>
+                                    <li>open .cine files as images</li>
+                                </ul>
+                            </li>
+                            <li>Still no point defects observed in thin films</li>
+                            <li>Up to this point I have been using MX12846 liquid crystal which is smectic C at room temperature. I switched to 8068 to see if it would work. It did not
+                                <ul>
+                                    <li>seems more fragile than 12846</li>
+                                    <li>breaks easily, much harder to draw films</li>
+                                    <li>more difficult to get holes</li>
+                                </ul>
+                            </li>
+                            <li>I tried transmitted light instead of reflected light, there were still no defects observed.</li>
+                            <li>I now have a script to convert .cine to .tiff</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-6" class="tab-switch">
+                    <label for="tab-6" class="tab-label">7/10/23</label>
+                    <div class="tab-content">
+                        <h3>Point Defects</h3>
+                        <ul>
+                            <li>No point defects observed</li>
+                            <li>tried MX12805 (chiral) liquid crystal, still no success</li>
+                            <li>possible fix would be to fully make sure the polarizing setup is perfectly correct</li>
+                            <li>note: 12805 was very difficult to work with</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-7" class="tab-switch">
+                    <label for="tab-7" class="tab-label">7/11/23</label>
+                    <div class="tab-content">
+                        <h3>Point Defects</h3>
+                        <ul>
+                            <li>After tinkering with the polarizer and analyzer I improved the effect of the crossing polarizers, I got it closer to being fully polarized than ever</li>
+                            <li>I am still trying with the 12846</li>
+                            <li>I changed to a different, brighter light source</li>
+                            <li>I got a hole in the film with great difficulty, this one expanded very slowly, taking multiple hours to cover the film</li>
+                            <li>There were observable point defects in the film
+                                <ul>
+                                    <li>light source: max setting (255)</li>
+                                    <li>Exposure: 48.275 ms</li>
+                                    <li>Gain: 100%</li>
+                                </ul>
+                            </li>
+                            <li>
+                                My images and videos of the film/defects are in the folder: mx12846_PointDefects_##
+                            </li>
+                            <li>Changing the light and polarizer seem to have fixed the issues I have been having</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-8" class="tab-switch">
+                    <label for="tab-8" class="tab-label">7/12/23</label>
+                    <div class="tab-content">
+                        <h3>Observing Point Defects</h3>
+                        <ul>
+                            <li>I will try and replicate the results of 7/11/23</li>
+                            <li>I have another hole in a film (MX12846). Technique:
+                                <ul>
+                                    <li>draw partway, check if there is a hole forming</li>
+                                    <li>if so, finish drawing, if not go back and mess with the film that is forming to try and force one</li>
+                                    <li>don't break the film during this process</li>
+                                </ul>
+                            </li>
+                            <li>The new film did not show point defects, and second attempt did not show point defects
+                                <ul>
+                                    <li>possibly caused by contamination of the microscope slide</li>
+                                    <li>possible phase transition due to temperatures (it was very warm that day)</li>
+                                </ul>
+                            </li>
+                            <li>A new film was drawn with MX12805 and point defects were observed in the islands. This film was much darker than the first, so that may have been a cause</li>
+                            <li>Images in: mx12805_PointDefects_0#_E# (E represents the exposure)</li>
+                            <li>All images captured with E=181ms, and Gain 100%, under 20x magnification</li>
+                            <li>I drew multiple films of mx12805 with point defects observed
+                                <ul>
+                                    <li>at first, almost every point defect was on the edge of the containing island</li>
+                                    <li>after multiple minutes, the defects were in the centers of the islands</li>
+                                    <li>I could not find or observe any -1 defects in the film (they physically had to exist though)</li>
+                                </ul>
+                            </li>
+                            <li>My main problem is now the lack of -1 defects in my observations.</li>
+                            <li>It appears the islands get brighter over time, meaning I could turn the exposure down, potientially darkening the background enough to reveal the -1 defects</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-9" class="tab-switch">
+                    <label for="tab-9" class="tab-label">7/13/23</label>
+                    <div class="tab-content">
+                        <h3>Measuring defect properties</h3>
+                        <ul>
+                            <li>I am successful in observing point defects in smectic C films, so I will look into different problems:
+                                <ul>
+                                    <li>it is still very hard to see -1 defects</li>
+                                    <li>the SVM has trouble with images of defects under crossed polarizers (the edge detection messes up)</li>
+                                </ul>
+                            </li>
+                            <li>Notes on the films:
+                                <ul>
+                                    <li>it appears to be common for islands to take a few minutes to form in the hole (~5 minutes)</li>
+                                    <li>when the islands first form, almost every defect is on the edge of an island</li>
+                                    <li>still cannot see -1 defects</li>
+                                </ul>
+                            </li>
+                            <li>SVM Progress:
+                                <ul>
+                                    <li>The SVM picks up millions of edges in each image, due to the complexity of the defect structure</li>
+                                    <li>This was fixed by resizing the input image to fix the resolution</li>
+                                </ul>
+                            </li>
+                            <li>My next step is to try racemic mx12846 to see if I can spot point defects, both +1 and -1</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-10" class="tab-switch">
+                    <label for="tab-10" class="tab-label">7/14/23</label>
+                    <div class="tab-content">
+                        <h3>Observing point defects</h3>
+                        <ul>
+                            <li>Today's goal is to observe -1 defects in the film</li>
+                            <li>I will try and use mx12846 to observe these defects</li>
+                            <li>I can consistently get holes and observe defects, but not -1 defects. Changing exposure and gain does not change anything</li>
+                            <li>Exposures between 50ms and 200ms seem good for observing the +1 defects (inside islands)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-11" class="tab-switch">
+                    <label for="tab-11" class="tab-label">7/19/23</label>
+                    <div class="tab-content">
+                        <h3>Measuring defects</h3>
+                        <ul>
+                            <li>After discussions, observing -1 defects may not be necessary because the dynamics are exemplified in the dynamics of the islands themselves</li>
+                            <li>I will try and find pairs of islands isolated from other islands and look at those dynamics</li>
+                            <li>It turns out island pairs are incredibly difficult to find (isolated from others), especially after the film has existed for too long</li>
+                            <li>It may be important to find the pairs quickly after the hole has mostly finished expanding</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-12" class="tab-switch">
+                    <label for="tab-12" class="tab-label">7/20/23</label>
+                    <div class="tab-content">
+                        <ul>
+                            <li>Meeting Notes:
+                                <ul>
+                                    <li>I should cover up the gaps in the hot stage using foam, lens paper, and a ring around the objective lens</li>
+                                    <li>Check the existing .cine files using the converter script</li>
+                                    <li>I should run the SVM on old data taken by Aaron</li>
+                                    <li>Use 12805 and improve image quality</li>
+                                    <li>use the camera to potentially change contrast -> may help observe -1 defects</li>
+                                    <li>it may be useful to plot histograms of color channels</li>
+                                    <li>develop code to measure diffusion correlation</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-13" class="tab-switch">
+                    <label for="tab-13" class="tab-label">7/24/23</label>
+                    <div class="tab-content">
+                        <h3>Looking at Defects</h3>
+                        <ul>
+                            <li>Todo: upload dipole equilibrium vids</li>
+                            <li>All quadrupole data is uploaded as of today -> SVM ran through tiffs from quad 3</li>
+                            <li>The support vector machine had a 99.8% success rate (2 out of 1000) were incorrectly classified
+                                <ul>
+                                    <li>The wrong ones were classified as clusters not islands</li>
+                                    <li>I fixed the problem by retraining with a few defects in the dataset</li>
+                                    <li>For 992 512x512 tiffs the SVM took 8000 seconds to process all the images</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-14" class="tab-switch">
+                    <label for="tab-14" class="tab-label">7/25/23</label>
+                    <div class="tab-content">
+                        <ul>
+                            <li>I implemented trackpy to get trajectories of islands during a video using the support vector machine</li>
+                            <li>My histogram fits the theory data pretty well, but there were a few problems with the SVM I needed to work out</li>
+                            <li>I got some good films in grayscale, contrast/hue/brightness doesn't help, but gain helps improve the images</li>
+                            <li>Todo:
+                                <ul>
+                                    <li>Dipole data</li>
+                                    <li>Analyze data and Quad 2</li>
+                                    <li>presentation preparaation</li>
+                                </ul>
+                            </li>
+                            <li>The radius of the islands is important for normalization. The resolution of the camera is 1024x800.</li>
+                            <li>4096x2000 videos have 3fps -> maybe look into this for better quality</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-15" class="tab-switch">
+                    <label for="tab-15" class="tab-label">2/3/24</label>
+                    <div class="tab-content">
+                        <h3>First LC/QD Mixtures</h3>
+                        <ul>
+                            <li>First: Making LC Mixture
+                                <ul>
+                                    <li>placed ~20 mg 8CB into vial #1</li>
+                                    <li>heated to ~40 *C for a bit until it begain to drip (note: go to ~37 next time)</li>
+                                    <li>added 1 mL chloroform to vial #1</li>
+                                    <li>note: took many hours to evaporate under the fume hood</li>
+                                </ul>
+                            </li>
+                            <li>Second: Make QD Mixture
+                                <ul>
+                                    <li>placed ~1.5 mg quantum dots into a vial (vial #2)</li>
+                                    <li>note: we bought 50 mg</li>
+                                    <li>added 0.5 mL chloroform to vial #2</li>
+                                    <li>sonicade for ~20 minutes</li>
+                                    <li>note: quickly tap spatula to easily deposit QD in vial (QDs are sticky)</li>
+                                    <li>note: sonicade was warm? check if ok, maybe measure temperature another time</li>
+                                </ul>
+                            </li>
+                            <li>Future Ideas:
+                                <ul>
+                                    <li>use QD mixture as "large stock mixture" to draw from multiple times</li>
+                                    <li>for 20 mg LC, 0.2 mg QD gives about a 1% mass fraction</li>
+                                    <li>mass fraction: mQD / (mLC + mQD)</li>
+                                    <li>we want to draw from QD mixture (vial #2) and add to vial #1 to create the final mixture for drawing films</li>
+                                    <li>Idea #1 for final mixture:
+                                        <ul>
+                                            <li>draw from QD and add to vial #1</li>
+                                            <li>add chloroform to vial #1</li>
+                                            <li>sonicade for a while, as chloroform evaporates</li>
+                                            <li>use ASAP after chloroform evaportates</li>
+                                        </ul>
+                                    </li>
+                                    <li>Idea #2 for final mixture
+                                        <ul>
+                                            <li>draw from QD and add to vial #1</li>
+                                            <li>add chloroform to vial #1</li>
+                                            <li>sonicade without evaporating for a while</li>
+                                            <li>place on high speed stir plate while chloroform evaporates (for hours, may need to be heated as well)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-16" class="tab-switch">
+                    <label for="tab-16" class="tab-label">2/13/24</label>
+                    <div class="tab-content">
+                        <h3>Making Mixtures</h3>
+                        <ul>
+                            <li>began by sonicading the QD + Chloroform mixture: Start: 1:20 pm End: 2:00 pm</li>
+                            <li>heated LC to ~38 C until melting</li>
+                            <li>mixed with 0.1 mL chloroform and sonicaded with cap on for ~15 minutes</li>
+                            <li>then placed on stir plate and set to mix overnight, start: 4:40 pm</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-17" class="tab-switch">
+                    <label for="tab-17" class="tab-label">2/14/24</label>
+                    <div class="tab-content">
+                        <h3>Making Mixtures</h3>
+                        <ul>
+                            <li>checked on stir plate (at 12pm), chloroform had evaporated. Observations:
+                                <ul>
+                                    <li>chloroform fully evaporated</li>
+                                    <li>LC seemed good, no irreversible changes.</li>
+                                    <li>QD seems to be aggregated or even stuck to the stir bar, LC is not uniformly red</li>
+                                </ul>
+                            </li>
+                            <li>I attempted to draw films:
+                                <ul>
+                                    <li>QDs fluoresce under the blue filter (as expected)</li>
+                                    <li>it was very diffiult to draw the films</li>
+                                    <li>the layers/islands were moving incredibly fast</li>
+                                    <li>the films pop extremely easily, and I don't see QDs in the film</li>
+                                    <li>I will leave the mixtire alone and see what happens</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-18" class="tab-switch">
+                    <label for="tab-18" class="tab-label">2/15/24</label>
+                    <div class="tab-content">
+                        <h3>Making Mixtures</h3>
+                        <ul>
+                            <li>I attempted to draw films:
+                                <ul>
+                                    <li>very difficult</li>
+                                    <li>airflow is bad?</li>
+                                    <li>whenever I got a film, it popped immediately</li>
+                                    <li>maybe the QDs were moving too fast to stabilize the film</li>
+                                    <li>very thick films = can't see QDs?</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-19" class="tab-switch">
+                    <label for="tab-19" class="tab-label">2/16/24</label>
+                    <div class="tab-content">
+                        <h3>Drawing Films</h3>
+                        <ul>
+                            <li>Drawing films with the black box on:
+                                <ul>
+                                    <li>films should be thin</li>
+                                    <li>only seeing QDs near the edge of the hole</li>
+                                    <li>no drying</li>
+                                    <li>films pop immediately every time</li>
+                                    <li>would be better to use the camera in the future</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-20" class="tab-switch">
+                    <label for="tab-20" class="tab-label">2/21/24</label>
+                    <div class="tab-content">
+                        <h3>Drawing Films</h3>
+                        <ul>
+                            <li>I could not draw films today</li>
+                            <li>mixture had been left since 2/15 -> probably too much aggregation</li>
+                            <li>I added 0.1 mL chloroform and left the mixture overnight on the stir plate (it is 4:30 pm now)</li>
+                            <li>Notes for tomorrow:
+                                <ul>
+                                    <li>clean microscope hole thoroughly</li>
+                                    <li>I would like to get a film to sit for many minutes</li>
+                                    <li>rearrange sonicade, etc</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-21" class="tab-switch">
+                    <label for="tab-21" class="tab-label">2/22/24</label>
+                    <div class="tab-content">
+                        <h3>Drawing Films</h3>
+                        <ul>
+                            <li>I got a stable thin film at 4:30 pm, with many islands
+                                <ul>
+                                    <li>No quantum dots observed</li>
+                                    <li>was stable at least 1 hour</li>
+                                    <li>I left the film overnight to sit, may be more interesting after many hours</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-22" class="tab-switch">
+                    <label for="tab-22" class="tab-label">2/23/24</label>
+                    <div class="tab-content">
+                        <h3>Drawing Films</h3>
+                        <ul>
+                            <li>The film overnight was still there, with some interesting shapes but no quantum dots observed</li>
+                            <li>I got another stable, clearly thick film:
+                                <ul>
+                                    <li>>100 layers most likely</li>
+                                    <li>created at 11:10 am</li>
+                                    <li>no QDs observed, even at high exposure with the proper filters</li>
+                                </ul>
+                            </li>
+                            <li>Why no quantum dots? Ideas:
+                                <ul>
+                                    <li>thickness -> can't aggregate?</li>
+                                    <li>too many quantum dots?</li>
+                                    <li>maybe use a higher objective, current one is 10x</li>
+                                    <li>focusing isn't accurate enough?</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-23" class="tab-switch">
+                    <label for="tab-23" class="tab-label">2/25/24</label>
+                    <div class="tab-content">
+                        <h3>Drawing Films</h3>
+                        <ul>
+                            <li>I got a stable film</li>
+                            <li>film from 2/23 still present when I came in, no Quantum dots observed (under 10x)</li>
+                            <li>I got another stable thin film, which I will leave right now to sit (~2:00 pm)</li>
+                            <li>added 200 uL of chloroform to the mixture and left evaporating on the stir plate</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-24" class="tab-switch">
+                    <label for="tab-24" class="tab-label">2/26/24</label>
+                    <div class="tab-content">
+                        <h3>Drawing Films</h3>
+                        <ul>
+                            <li>film from 2/25 was still there
+                                <ul>
+                                    <li>no quantum dots observed</li>
+                                    <li>tons of tiny islands diffusing in the film</li>
+                                </ul>
+                            </li>
+                            <li>I left the film, and all chloroform had evaporated when I arrived ~5:00 pm</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-25" class="tab-switch">
+                    <label for="tab-25" class="tab-label">2/29/24</label>
+                    <div class="tab-content">
+                        <h3>Drawing Films</h3>
+                        <ul>
+                            <li>film from 2/26 is gone</li>
+                            <li>I tried to draw films, I couldn't get one today</li>
+                            <li>my current theories: 
+                                <ul>
+                                    <li>The dots aggregate too fast</li>
+                                    <li>not a high enough objective lens</li>
+                                </ul>
+                            </li>
+                            <li>when filters are in, the film shows average around ~100 ADU</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-26" class="tab-switch">
+                    <label for="tab-26" class="tab-label">3/4/24</label>
+                    <div class="tab-content">
+                        <h3>New Mixture</h3>
+                        <ul>
+                            <li>I want to make a new mixture with 0.5% mass of quantum dots</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>Mass of Vial:</th>
+                                <td>4253.4 mg</td>
+                                <td>4252.9 mg</td>
+                                <td>4252.4 mg</td>
+                                <th>4252.9 mg</th>
+                            </tr>
+                            <tr>
+                                <th>Vial & LC:</th>
+                                <td>4272.8 mg</td>
+                                <td>4272.7 mg</td>
+                                <td>4272.6 mg</td>
+                                <th>4272.7 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>Total mass of 8CB in mixture: 19.8 mg</li>
+                            <li>~0.1 mg QD will give a 0.5% mass of QD</li>
+                            <li>chloroform + QD mixture has concentration 1.5 mg / 0.5 mL concentration, so 33 uL is needed</li>
+                            <li>The chloroform + QD mixutre was sonicaded for 30 minutes (with the cap on) -> then 33 uL was taken out and deposited into the ~20mg LC mixture</li>
+                            <li>The LC + QD + chloroform mixture was sonicaded (cap on) for another 30 minutes</li>
+                            <li>200 uL of chloroform was added to the mixture and it was left overnight stirring at 400 rpm (cap off)</li>
+                            <li>I left it stirring at 6:00 pm</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-27" class="tab-switch">
+                    <label for="tab-27" class="tab-label">3/6/24</label>
+                    <div class="tab-content">
+                        <h3>Testing Mixtures</h3>
+                        <ul>
+                            <li>Could not draw films</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-28" class="tab-switch">
+                    <label for="tab-28" class="tab-label">3/7/24</label>
+                    <div class="tab-content">
+                        <h3>Testing Mixture</h3>
+                        <ul>
+                            <li>got a stable film, no QDs observed</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-29" class="tab-switch">
+                    <label for="tab-29" class="tab-label">3/8/24</label>
+                    <div class="tab-content">
+                        <h3>Testing Mixture</h3>
+                        <ul>
+                            <li>film from 3/7 (almost exactly 24hrs stable) has no quantum dots</li>
+                            <li>maybe it is not being mixed well enough in the first place</li>
+                            <li>I left it stirring with the cap on (1:00 pm) with 1 mL of chloroform</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-30" class="tab-switch">
+                    <label for="tab-30" class="tab-label">3/11/24</label>
+                    <div class="tab-content">
+                        <h3>Testing Mixture</h3>
+                        <ul>
+                            <li>Took mixture off stir plate at ~9:30 am, placed back with no cap for evaporation</li>
+                            <li>not fully evaporated at ~4:00 pm, so I left overnight</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-31" class="tab-switch">
+                    <label for="tab-31" class="tab-label">3/13/24</label>
+                    <div class="tab-content">
+                        <h3>Testing Mixture</h3>
+                        <ul>
+                            <li>Drew films, ~4:00 pm</li>
+                            <li>I got a good film, and I have left it overnight. (No QDs observed yet)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-32" class="tab-switch">
+                    <label for="tab-32" class="tab-label">3/14/24</label>
+                    <div class="tab-content">
+                        <h3>Testing Mixture</h3>
+                        <ul>
+                            <li>film from 3/13 still  there ~2:00 pm, but no quantum dots</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-33" class="tab-switch">
+                    <label for="tab-33" class="tab-label">3/15/24</label>
+                    <div class="tab-content">
+                        <h3>Testing Mixture</h3>
+                        <ul>
+                            <li>Film from 3/13 still there, ~11:00 am, but no quantum dots observed</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-34" class="tab-switch">
+                    <label for="tab-34" class="tab-label">3/15/24</label>
+                    <div class="tab-content">
+                        <h3>Making a New Mixture</h3>
+                        <ul>
+                            <li>I will make a new mixture with 0.1% mass</li>
+                            <li>This means we want 0.02 mg of QD</li>
+                            <li>This means 7 uL from the stock mixture</li>
+                            <li>Before, the stock was sonicaded for 60 minutes</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>Vial Only</th>
+                                <td>4290.9 mg</td>
+                                <td>4290.6 mg</td>
+                                <td>4290.4 mg</td>
+                                <th>4290.63 mg</th>
+                            </tr>
+                            <tr>
+                                <th>Vial with 8CB</th>
+                                <td>4309.9 mg</td>
+                                <td>4309.9 mg</td>
+                                <td>4309.5 mg</td>
+                                <th>4309.76 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>The mass of 8CB is 19.13 mg
+                                <ul>
+                                    <li>The percent mass with 0.02 mg QD is calculated as 0.1044%</li>
+                                </ul>
+                            </li>
+                            <li>The mixture was left mixing at 400 rpm with the cap on</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-35" class="tab-switch">
+                    <label for="tab-35" class="tab-label">3/20/24</label>
+                    <div class="tab-content">
+                        <h3>New Mixture</h3>
+                        <ul>
+                            <li>took the cap off and continued mixing</li>
+                        </ul>
+                    </div>
+                </div> 
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-36" class="tab-switch">
+                    <label for="tab-36" class="tab-label">3/22/24</label>
+                    <div class="tab-content">
+                        <h3>New Mixture</h3>
+                        <ul>
+                            <li>chloroform had evaporated, I took it off the stir plate and placed into the samples drawer</li>
+                        </ul>
+                    </div>
+                </div> 
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-37" class="tab-switch">
+                    <label for="tab-37" class="tab-label">4/18/24</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>I am planning to use PR2 from the 8CB paper</li>
+                            <li>First, mix quantum dots in toluene:</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>Vial Mass</th>
+                                <td>5051.7 mg</td>
+                                <td>5051.9 mg</td>
+                                <td>5051.8 mg</td>
+                                <th>5051.8 mg</th>
+                            </tr>
+                            <tr>
+                                <th>Vial w/ QD</th>
+                                <td>5052.9 mg</td>
+                                <td>5052.9 mg</td>
+                                <td>5052.8 mg</td>
+                                <th>5052.96 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>total QD mass: 1.0666 mg</li>
+                            <li>added 1 mL toluene to this</li>
+                            <li>now LC in toluene:</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>vVial Mass</th>
+                                <td>N/A</td>
+                                <td>N/A</td>
+                                <td>N/A</td>
+                                <th>4232.8 mg</th>
+                            </tr>
+                            <tr>
+                                <th>Vial w/ 8CB</th>
+                                <td>4243.3 mg</td>
+                                <td>4243.5 mg</td>
+                                <td>4243.2 mg</td>
+                                <th>4243.33 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>Total 8CB ~ 10.53 mg</li>
+                            <li>added 1 mL of toluene to this</li>
+                            <li>.2% of 10mg ~ 0.02 mg</li>
+                            <li>this corresponds to 19.74 uL of stock ~20 uL</li>
+                            <li>I will put in 20 uL of the first mixture, which means the actual mass percent is ~ 0.2022%</li>
+                            <li>both mixtures were sonicaded for 2 hours beforehand</li>
+                            <li>I began sonicading the final LC + chloroform + QD mixture at 2 pm</li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-38" class="tab-switch">
+                    <label for="tab-38" class="tab-label">4/19/24</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>I stopped the sonicade at 9:00 am, which means the mixutre had been in the sonicade for 19 hours</li>
+                            <li>Placed on a stir plate with the cap off</li>
+                            <li>I drew films using the 0.1% mixture (3/15/24), but no quantum dots appearing even after 1.5 hours</li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-39" class="tab-switch">
+                    <label for="tab-39" class="tab-label">4/23/24</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>placed on hot stir plate at 40 C</li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-40" class="tab-switch">
+                    <label for="tab-40" class="tab-label">4/25/24</label>
+                    <div class="tab-content">
+                        <h3></h3>
+                        <ul>
+                            <li>Removed from stir plate, placed vial in fume hood for LC to cool off</li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-41" class="tab-switch">
+                    <label for="tab-41" class="tab-label">4/26/24</label>
+                    <div class="tab-content">
+                        <h3>Drawing Films</h3>
+                        <ul>
+                            <li>Drew films with the new mixture
+                                <ul>
+                                    <li>no quantum dots observed in the film</li>
+                                    <li>it was not hard to draw films</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-42" class="tab-switch">
+                    <label for="tab-42" class="tab-label">4/29/24</label>
+                    <div class="tab-content">
+                        <h3>Drawing Films</h3>
+                        <ul>
+                            <li>I drew with the 0.2% mixture</li>
+                            <li>on the 10x I observed strange island behavior near the meniscus, islands sticking and moving/growing fast</li>
+                            <li>on the 20x there is nothing interesting</li>
+                            <li>it was very difficult to draw films</li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-43" class="tab-switch">
+                    <label for="tab-43" class="tab-label">5/2/24</label>
+                    <div class="tab-content">
+                        <h3>Re-mixing</h3>
+                        <ul>
+                            <li>LC mixture was heated/melted then 200 uL of toluene was added</li>
+                            <li>both (QD + toluene) and (LC + QD + toluene) sonicaded for 2 hours (4:30 pm to 6:30 pm)</li>
+                            <li>10 uL of QD + toluene added to LC + QD + toluene, bringing the mass percent to ~0.3%</li>
+                            <li>Mixture set in sonication at 7:00 pm</li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-44" class="tab-switch">
+                    <label for="tab-44" class="tab-label">5/3/24</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>Mixture taken off sonication at 10 am -> 15 hours sonication time</li>
+                            <li>placed on stir plate with the cap off at 40 C and 300 rpm</li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-45" class="tab-switch">
+                    <label for="tab-45" class="tab-label">5/6/24</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>Mixture removed from hot/stir plate and placed under fime hood with cap off to cool at 10 am</li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-46" class="tab-switch">
+                    <label for="tab-46" class="tab-label">5/8/24</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>I will make a new mixture with 0.2 % mass of quantum dots</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>Vial Mass</th>
+                                <td>4279.0 mg</td>
+                                <td>4278.8 mg</td>
+                                <td>4278.9 mg</td>
+                                <th>4278.6 mg</th>
+                            </tr>
+                            <tr>
+                                <th>Vial w/ 8CB</th>
+                                <td>4288.3 mg</td>
+                                <td>4288.9 mg</td>
+                                <td>4288.3 mg</td>
+                                <th>4288.5 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>total LC mass: 9.6 mg</li>
+                            <li>for 0.2% mass QD, this then requires 18 uL of the stock mixture (QD + toluene)</li>
+                        </ul>
+                        <ol>
+                            <li>Melt 8CB at 40 C on the hot plate</li>
+                            <li>Add toluene and mix</li>
+                            <li>sonicade 8CB + toluene and QD + toluene for 2.5 hours</li>
+                            <li>add 18 uL of QD + toluene to 8CB + toluene</li>
+                            <li>Sonciade final mixture from 4:20 pm to 6:50 pm (2.5 hours)</li>
+                            <li>Sonicade final mixture from 7:00 pm to 10:00 am (15 hours)</li>
+                        </ol>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-47" class="tab-switch">
+                    <label for="tab-47" class="tab-label">5/9/24</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>Mixture placed on stir plate at 40 C at 10:00 am</li>
+                            <li>at 7:30 pm the mixture was taken off and set to cool with cap off</li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-48" class="tab-switch">
+                    <label for="tab-48" class="tab-label">5/10/24</label>
+                    <div class="tab-content">
+                        <h3>Drawing Films</h3>
+                        <ul>
+                            <li>I can't seem to draw films with this new mixture</li>
+                            <li>QDs look already aggregated under the microscope</li>
+                            <li>I melted the LC + QD mixture at ~38 C, note the hot plate is broken so 80 C on the display corresponds to roughly 38-40 C </li>
+                            <li>I added 200 uL of toluene</li>
+                            <li>started sonication at 4:40 pm</li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-49" class="tab-switch">
+                    <label for="tab-49" class="tab-label">5/11/24</label>
+                    <div class="tab-content">
+                        <h3>Drawing Films</h3>
+                        <ul>
+                            <li>Sonicade had no water in it when I came in at 1:30 pm</li>
+                            <li>I looked at the dots under the microscope (20x) and they seemed to be already aggregated</li>
+                            <li>QD + toluene was sonicaded for 2 hours, then I immediately looked at the dots under the microscope and they appeared already aggregated</li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-50" class="tab-switch">
+                    <label for="tab-50" class="tab-label">10/15/24</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>Remaking the stock mixtures</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>vial mass</th>
+                                <td>4275.8 mg</td>
+                                <td>4275.7 mg</td>
+                                <td>4275.8 mg</td>
+                                <th>4275.77 mg</th>
+                            </tr>
+                            <tr>
+                                <th>with QD</th>
+                                <td>4278.3 mg</td>
+                                <td>4278.3 mg</td>
+                                <td>4278.3 mg</td>
+                                <th>4278.3 mg</th>
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+                                <th>vial mass</th>
+                                <td>4301.0 mg</td>
+                                <td>4300.9 mg</td>
+                                <td>4300.7 mg</td>
+                                <th>4300.87 mg</th>
+                            </tr>
+                            <tr>
+                                <th>with 8CB</th>
+                                <td>4310.6 mg</td>
+                                <td>4310.5 mg</td>
+                                <td>4310.7 mg</td>
+                                <th>4310.6 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>This is 2.53 mg QD</li>
+                            <li>I added 2.53 mL toluene to make a 1 mL/mg concentration</li>
+                            <li>The 8CB mix has 9.73 mg 8CB</li>
+                            <li>I heated the 8CB for 15 minutes and then added 1 mL of toluene</li>
+                            <li>both mixtures were sonicaded for 3 hours</li>
+                            <li>20 uL of QD+toluene was taken (which means 20 ug QD)</li>
+                            <li>This mass gives a mixture which is 0.2% mass quantum dots</li>
+                            <li>The 8CB + QD + toluene mixture was sonicaded from 11:55 am to 1:30 pm (1.5 hrs)</li>
+                            <li>toaster oven was preheated to just above 200 F -> 93.3 C</li>
+                            <li>I used the vortex machine a few seconds before it was placed into the oven with the cap off</li>
+                            <li>Vial was on the oven for ~7 minutes
+                                <ul>
+                                    <li>appeared liquidy after removal</li>
+                                    <li>I put it in the fridge and let sit for ~20 minutes before looking and it was still liquidy</li>
+                                </ul>
+                            </li>
+                            <li>vial was placed back in oven for ~10 minutes at ~300 F</li>
+                            <li>the 8CB appears to have burned (it is an orange color)</li>
+                            <li>I tried looking under the microscope and drawing films
+                                <ul>
+                                    <li>I cannot draw films at all</li>
+                                    <li>LC appears to have QD aggregates inside it</li>
+                                    <li>films pop immediately</li>
+                                    <li>LC is brown/orange and seems burned</li>
+                                    <li>QD seems aggregated -> sonicade for longer next time?</li>
+                                </ul>
+                            </li>
+                            <li>I created a new mixture of 11 mg 8CB in 1 mL of toluene before leaving. It will need to be sonicaded next time.</li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-51" class="tab-switch">
+                    <label for="tab-51" class="tab-label">10/18/24</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>Started by sonicading the 8CB+toluene and the QD+toluene from 1:40 pm to 3:50 pm (2 hours)</li>
+                            <li>before I used the vortex on both mixtures for a couple of seconds</li>
+                            <li>I will try to make a 0.1% mass mixture
+                                <ul>
+                                    <li>0.1% of 11 mg is 11 ug</li>
+                                    <li>for 11 ug of QD us 11 iL of the QD+toluene</li>
+                                </ul>
+                            </li>
+                            <li>I used the vortex on the QD+toluene mixture before drawing</li>
+                            <li>sonicade from 4:00 pm to 5:00 pm (1 hour)</li>
+                            <li>placed in toaster oven at ~300 F for 8 minutes</li>
+                            <li>placed in fridge for ~2 minutes</li>
+                            <li>The LC was not burned afterwards</li>
+                            <li>I could not draw films, they popped pretty much immediately. I see dots in the film, could be islands or aggregates. Next time use less quantum dots</li>
+                            <li>Experiment 2: Fail
+                                <ul>
+                                    <li>ratio: 11 ug QD to 11 mg 8CB</li>
+                                    <li>sonicade time: 1 hour</li>
+                                    <li>toaster oven time: 8-9 minutes</li>
+                                    <li>Notes: too many dots/aggregates</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-52" class="tab-switch">
+                    <label for="tab-52" class="tab-label">10/22/24</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>I am making a new mixture</li>
+                            <li>8CB + toluene:</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>vial mass</th>
+                                <td>4261.3 mg</td>
+                                <td>4261.4 mg</td>
+                                <td>4261.5 mg</td>
+                                <th>4261.4 mg</th>
+                            </tr>
+                            <tr>
+                                <th>vial with 8CB</th>
+                                <td>4271.4 mg</td>
+                                <td>4271.5 mg</td>
+                                <td>4271.5 mg</td>
+                                <th>4271.47 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>8CB mass is 10.07 mg</li>
+                            <li>I added 1 mL of toluene and began sonication of both mixtures at 8:12 am to 11:10 am (3 hours)</li>
+                            <li>U added 2 uL of the QD+toluene to the LC+toluene and sonicade from 11:12 am to 2:08 am (3 hours)</li>
+                            <li>popped the vial (cap off) in the toaster oven at ~300 F with the timer at 9 minutes</li>
+                            <li>Immediately put in fridge for about 2 minutes</li>
+                            <li>Experiment 3: Fail
+                                <ul>
+                                    <li>Mix ratio: 2ug QD to 10mg 8CB</li>
+                                    <li>sonicade time: 3 hours</li>
+                                    <li>oven time: 9 minutes</li>
+                                    <li>There were still too many dots in the mixture</li>
+                                    <li>film was moving very fast -> ask in next meeting</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-53" class="tab-switch">
+                    <label for="tab-53" class="tab-label">10/29/24</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>I am making a new mixture</li>
+                            <li>8CB + toluene:</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>vial mass</th>
+                                <td>4257.7 mg</td>
+                                <td>4257.7 mg</td>
+                                <td>4257.9 mg</td>
+                                <th>4257.77 mg</th>
+                            </tr>
+                            <tr>
+                                <th>with 8CB</th>
+                                <td>4267.8 mg</td>
+                                <td>4268.1 mg</td>
+                                <td>4268.0 mg</td>
+                                <th>4267.97 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>The stock mixture was diluted in order to get smaller masses of QD</li>
+                            <li>5 uL of the old stock mixture was combined with 1 mL of toluene for a new stock concentration of 4.975 ug / mL</li>
+                            <li>The new stock was sonicaded from 12:50 to 1:20 (30 minutes)</li>
+                            <li>Added 20 uL of new stock (100 ng of QD) to the 8CB + toluene</li>
+                            <li>sonicaded from 1:20 to 2:45 (1.5 hours)</li>
+                            <li>placed in the toaster oven for ~8 minutes at 350 and 300 F (mistakes were made), then fridge for 2 minutes</li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-54" class="tab-switch">
+                    <label for="tab-54" class="tab-label">11/9/24</label>
+                    <div class="tab-content">
+                        <h3>Testing the Oven</h3>
+                        <ul>
+                            <li>Today's Goals: Find at which temperature the 8CB burns, and find exactly how long it takes to evaporate the toluene</li>
+                            <li>Procedure design:
+                                <ul>
+                                    <li>first prepare 10 mg 8CB</li>
+                                    <li>then record the temperature and place in the oven for 15 minutes</li>
+                                    <li>keep increasing temperature until it burns</li>
+                                    <li>Temp: 200 -> no burning</li>
+                                    <li>Temp: 225 -> no burning</li>
+                                    <li>Temp: 250 -> no burning</li>
+                                    <li>Temp: 275 -> looks like a crystal now?</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>vial mass</th>
+                                <td>4797.4 mg</td>
+                                <td>4797.6 mg</td>
+                                <td>4797.3 mg</td>
+                                <th>4797.43 mg</th>
+                            </tr>
+                            <tr>
+                                <th>with 8CB</th>
+                                <td>4806.8 mg</td>
+                                <td>4806.8 mg</td>
+                                <td>4806.8 mg</td>
+                                <th>4806.8 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>9.4 mg of 8CB</li>
+                        </ul>
+                    </div>  
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-55" class="tab-switch">
+                    <label for="tab-55" class="tab-label">11/16/24</label>
+                    <div class="tab-content">
+                        <h3>Testing the Oven</h3>
+                        <ul>
+                            <li>We prepared 4 mixtures of ~10 mg 8CB and heated them to isotropic (denoted mixtures 1-4)</li>
+                            <li>we added 1 mL of toluene to each vial</li>
+                            <li>placed in sonicade at 10:47 am</li>
+                            <li>The mixtures are being tested in the oven at different times to see if the toluene evaporates</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>Mixture #</th>
+                                <th>Evaporation Time</th>
+                                <th>Toluene Evaporates?</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>10 min</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>12 min</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>15 min</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>20 min</td>
+                                <td>No</td>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>Observations: It looks like the toluene is gone after ~5 minutes, but it is not. Needs more time than 20 minutes</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-56" class="tab-switch">
+                    <label for="tab-56" class="tab-label">11/19/24</label>
+                    <div class="tab-content">
+                        <h3>Testing the Oven</h3>
+                        <ul>
+                            <li>Attempting to burn the 8CB again</li>
+                            <li>Oven time: 20 minutes, 8CB: ~10 mg, (I was using #2 from 11/16)</li>
+                            <li>The first test was at 275 F, and it burned, concluding that 250 F is close to the burning point</li>
+                            <li>I will make a mixture of toluene and 8CB and evaporate at 250 F for 30 minutes</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>vial</th>
+                                <td>4277.6 mg</td>
+                                <td>4277.6 mg</td>
+                                <td>4277.6 mg</td>
+                                <th>4277.6 mg</th>
+                            </tr>
+                            <tr>
+                                <th>with 8CB</th>
+                                <td>4287.2 mg</td>
+                                <td>4287.0 mg</td>
+                                <td>4287.0 mg</td>
+                                <th>4287.07 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>Total 8CB mass is 9.47 mg</li>
+                            <li>~10 mg 8CB melted at close to 40 C on the hot plate</li>
+                            <li>1 mL toluene then vortex for 2.5 minutes</li>
+                            <li>evaporate in oven for 30 min at 250 F</li>
+                            <li>let cool at room temperature then draw films. LC is not burnt and film is moving much slower, seems like more toluene is evaporated</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-57" class="tab-switch">
+                    <label for="tab-57" class="tab-label">11/20/24</label>
+                    <div class="tab-content">
+                        <h3>Testing the Oven</h3>
+                        <ul>
+                            <li>I will make two mixtures to test the evaporation time</li>
+                            <li>vial 1:</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>empty vial</th>
+                                <td>4280.0 mg</td>
+                                <td>4279.9 mg</td>
+                                <td>4280.0 mg</td>
+                                <th>4279.97 mg</th>
+                            </tr>
+                            <tr>
+                                <th>with 8CB</th>
+                                <td>4288.8 mg</td>
+                                <td>4288.8 mg</td>
+                                <td>4288.9 mg</td>
+                                <th>4288.83 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>vial 2:</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>empty vial</th>
+                                <td>4251.1 mg</td>
+                                <td>4251.1 mg</td>
+                                <td>4251.1 mg</td>
+                                <th>4251.1 mg</th>
+                            </tr>
+                            <tr>
+                                <th>with 8CB</th>
+                                <td>4259.4 mg</td>
+                                <td>4259.4 mg</td>
+                                <td>4259.4 mg</td>
+                                <th>4259.4 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>vial 1: 8.86 mg 8CB</li>
+                            <li>vial 2: 8.3 mg 8CB</li>
+                            <li>I added 1 mL of toluene to each vial then vortexed each one for 30 seconds</li>
+                            <li>They were then put into th oven at 250 F (with no preheating)</li>
+                            <li>vial 1: for 30 minutes, I managed to get a film and it moved slowly. It was difficult</li>
+                            <li>vial 2: for 35 minutes, I managed to get a film and it moved slowly, and it was easy to get a film</li>
+                            <li>I put the QD+toluene (from 10/29/2024) in the sonicade at 5:30 pm</li>
+                            <li>I conclude that 35 minutes is roughly the right time to evaporate in the toaster oven</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-58" class="tab-switch">
+                    <label for="tab-58" class="tab-label">12/3/24</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>I started sonicading the toluene+QD (10/29 mix) at 9:00 am to 12:30 pm (3.5 hours)</li>
+                            <li>8CB mass of 10.0 mg was used</li>
+                            <li>My plan is to add 20 uL of stock (100 ng QD) to 10 mg LC -> 0.001% mass</li>
+                            <li>8CB + QD sonicaded for 1.5 hours</li>
+                            <li>I potentially saw aggergates go to meniscus, it could have been islands</li>
+                            <li>I left the film at 3:00 pm, it was popped when I came back a few hours later</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-59" class="tab-switch">
+                    <label for="tab-59" class="tab-label">1/10/25</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>New mixture with lower concentration of Qdots</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>vial</th>
+                                <td>4261.5 mg</td>
+                                <td>4261.4 mg</td>
+                                <td>4261.5 mg</td>
+                                <th>4261.47 mg</th>
+                            </tr>
+                            <tr>
+                                <th>vial + LC</th>
+                                <td>4271.8 mg</td>
+                                <td>4271.6 mg</td>
+                                <td>4271.8 mg</td>
+                                <th>4271.73 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>mass of 8CB is 10.26 mg</li>
+                            <li>added +1 mL toluene</li>
+                            <li>plan: add 1 uL of QDot master mixture #2 (from 10/29)</li>
+                            <li>8CB + toluene sonicade 2 hours -> Qdot and toluene sonicade 2 hours</li>
+                            <li>after putting 1 uL, sonicaded for 2.75 hours</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-60" class="tab-switch">
+                    <label for="tab-60" class="tab-label">1/15/25</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>added 1 mL of toluene to mixture from 1/10</li>
+                            <li>mixture wouldn't melt, even at 65 on hot plate</li>
+                            <li>placed in sonicade at 8:00 am</li>
+                            <li>taken off sonicade at 11:40 am (3:40 hours)</li>
+                            <li>evaporated fro 35 minutes</li>
+                            <li>drawing films:
+                                <ul>
+                                    <li>films were fast moving and unstable</li>
+                                    <li>no visible QD except on edges/meniscus occasionally</li>
+                                    <li>ideas: not all toluene evap. and LC still in isotropic?</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-61" class="tab-switch">
+                    <label for="tab-61" class="tab-label">1/24/25</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>New master Qdot mixture (mixture #3) of QD+toluene</li>
+                            <li>The current mixture concentration is 4.975 ug / mL</li>
+                            <li>We are dividing by 10, so the new concnetration is 0.4975 ug / mL</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-62" class="tab-switch">
+                    <label for="tab-62" class="tab-label">1/27/25</label>
+                    <div class="tab-content">
+                        <h3>Making a Mixture</h3>
+                        <ul>
+                            <li>started sonicading mixture #3 at 11:00 am</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>vial</th>
+                                <td>4269.5 mg</td>
+                                <td>4269.2 mg</td>
+                                <td>4269.1 mg</td>
+                                <th>4269.2667 mg</th>
+                            </tr>
+                            <tr>
+                                <th>with 8CB</th>
+                                <td>4271.7 mg</td>
+                                <td>4271.8 mg</td>
+                                <td>4271.9 mg</td>
+                                <th>4271.8 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>placed on a hot plate</li>
+                            <li>rekoved stock #3 from sonicade at 1:20 pm</li>
+                            <li>placed 5 uL of stock #3 in the 8CB + 1mL toluene mixture</li>
+                            <li>placed mixture in sonicade</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-66" class="tab-switch">
+                    <label for="tab-66" class="tab-label">2/7/25</label>
+                    <div class="tab-content">
+                        <h3>New Mixture</h3>
+                        <ul>
+                            <li>New Qdot and LC mixture</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>vial [mg]</th>
+                                <td>4261.2</td>
+                                <td>4261.2</td>
+                                <td>4261.2</td>
+                                <th>4261.2 mg</th>
+                            </tr>
+                            <tr>
+                                <th>vial + LC [mg]</th>
+                                <td>4262.2</td>
+                                <td>4262.3</td>
+                                <td>4262.3</td>
+                                <th>4262.27 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>mass of LC is 1.07 mg, added 1 mL toluene</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-63" class="tab-switch">
+                    <label for="tab-63" class="tab-label">2/19/25</label>
+                    <div class="tab-content">
+                        <ul>
+                            <li>the lab computer will not turn on -> it is a power rail failure (no easy fix right now)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" name="css-tabs" id="tab-64" class="tab-switch">
+                    <label for="tab-64" class="tab-label">4/18/25</label>
+                    <div class="tab-content">
+                        <h3>Spectroscopy</h3>
+                        <ul>
+                            <li>Looking at quantum dots in toluene to understand the mass</li>
+                        </ul>
+                        <table>
+                            <tr>
+                                <th>vial</th>
+                                <td>4241.0 mg</td>
+                                <td>4241.1 mg</td>
+                                <td>4241.1 mg</td>
+                                <th>4241.067 mg</th>
+                            </tr>
+                            <tr>
+                                <th>with QD</th>
+                                <td>4241.2 mg</td>
+                                <td>4241.2 mg</td>
+                                <td>4241.1 mg</td>
+                                <th>4241.167 mg</th>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>The mass of Qdots is 0.1 mg</li>
+                            <li>added 2 mL of toluene</li>
+                            <li>mew code uploaded, need to sign into the lab computer MatLab</li>
+                            <li>took specs of the mixture at 3:45 pm</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="padding-top: 3%;"></div>
+    </body>
+</html>
